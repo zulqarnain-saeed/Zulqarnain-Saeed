@@ -15,7 +15,7 @@
 
 <p align="center">
   <a href="https://www.hackerrank.com/profile/zulqarnain_saeed"><img src="https://img.shields.io/badge/HackerRank-18181B?style=flat-square&logo=hackerrank&logoColor=2EC866" alt="HackerRank profile"></a>
-  <a href="https://leetcode.com/u/ZulqarnainSaeed/"><img src="https://img.shields.io/badge/LeetCode-18181B?style=flat-square&logo=leetcode&logoColor=FFA116" alt="LeetCode profile"></a>
+  <a href="https://leetcode.com/u/zulqarnain-saeed/"><img src="https://img.shields.io/badge/LeetCode-18181B?style=flat-square&logo=leetcode&logoColor=FFA116" alt="LeetCode profile"></a>
 </p>
 
 ---
