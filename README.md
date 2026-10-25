@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://zulqarnain-saeed.netlify.app/"><img src="https://img.shields.io/badge/VIEW_PORTFOLIO-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white" alt="View portfolio"></a>
-  <a href="https://www.linkedin.com/in/zulqarnain-saeed2005/"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="Connect on LinkedIn"></a>
+  <a href="https://www.linkedin.com/in/zulqarnain-saeed/"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="Connect on LinkedIn"></a>
   <a href="https://zentorix.netlify.app/"><img src="https://img.shields.io/badge/ZENTORIX-0F766E?style=for-the-badge&logo=netlify&logoColor=white" alt="Explore Zentorix"></a>
   <a href="mailto:zulqarnainsaeed2005@gmail.com"><img src="https://img.shields.io/badge/EMAIL-475569?style=for-the-badge&logo=gmail&logoColor=white" alt="Email me"></a>
 </p>
