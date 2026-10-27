@@ -1,0 +1,351 @@
+---
+// Hero section — First impression with agency-level polish
+---
+
+<section
+  id="home"
+  class="relative min-h-[92vh] flex items-center overflow-hidden"
+  aria-label="Introduction and Hero"
+>
+  <!-- Dot pattern and subtle atmospheric gradients -->
+  <div class="absolute inset-0 dot-pattern opacity-60 dark:opacity-35" aria-hidden="true"></div>
+  <div class="absolute top-1/4 right-[8%] w-80 h-80 rounded-full bg-accent-400/10 dark:bg-accent-500/8 blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute bottom-1/4 left-[4%] w-64 h-64 rounded-full bg-teal-600/8 dark:bg-teal-400/6 blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <div class="section-container relative z-10 pt-28 pb-16 lg:pt-36 lg:pb-24">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+      <!-- Left Column (7 cols): Identity & Value Proposition -->
+      <div class="lg:col-span-7">
+        <!-- Live Status Pill -->
+        <div
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-500/10 dark:bg-accent-500/15 border border-accent-500/20 dark:border-accent-500/25 text-accent-700 dark:text-accent-300 text-xs font-mono font-medium mb-6"
+          data-reveal
+        >
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse-slow" aria-hidden="true"></span>
+          <span>BS Computer Science @ UCP Lahore · Open to Internships</span>
+        </div>
+
+        <!-- Name -->
+        <h1
+          class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-surface-900 dark:text-surface-50 mb-4"
+          data-reveal
+          data-delay="100"
+        >
+          Zulqarnain<br />
+          <span class="gradient-text">Saeed</span>
+        </h1>
+
+        <!-- Headline -->
+        <p
+          class="text-xl sm:text-2xl font-display font-medium text-surface-700 dark:text-surface-300 mb-6"
+          data-reveal
+          data-delay="200"
+        >
+          CS Student, Systems Explorer &amp; Founder of Zentorix
+        </p>
+
+        <!-- Narrative summary -->
+        <p
+          class="text-base sm:text-lg text-surface-600 dark:text-surface-400 leading-relaxed max-w-xl mb-8"
+          data-reveal
+          data-delay="300"
+        >
+          Undergraduate in Computer Science (2024–2028) at the <strong class="text-surface-800 dark:text-surface-200 font-semibold">University of Central Punjab</strong>. Passionate about software engineering and technical fundamentals — bridging data structures and operating systems with hands-on web development and growing interests in <strong class="text-surface-800 dark:text-surface-200 font-semibold">DevOps &amp; DevSecOps</strong>.
+        </p>
+
+        <!-- CTAs -->
+        <div
+          class="flex flex-wrap items-center gap-3.5 mb-10"
+          data-reveal
+          data-delay="400"
+        >
+          <a href="#projects" class="btn-primary">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0l-4-4m4 4l-4 4" />
+            </svg>
+            Explore My Work
+          </a>
+          <a href="#contact" class="btn-secondary">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Contact Me
+          </a>
+          <button
+            type="button"
+            id="open-cv-summary"
+            class="px-4 py-2.5 rounded-lg text-sm font-medium border border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-800 text-surface-700 dark:text-surface-300 hover:border-accent-500 hover:text-accent-600 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+            aria-label="View Resume Summary"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Profile Overview
+          </button>
+        </div>
+
+        <!-- Social Proof & Direct Channels -->
+        <div
+          class="flex items-center gap-4 pt-6 border-t border-surface-200 dark:border-surface-800"
+          data-reveal
+          data-delay="500"
+        >
+          <span class="text-xs font-mono text-surface-400 dark:text-surface-500 tracking-wider uppercase">Direct Links</span>
+          <div class="flex items-center gap-2">
+            <a
+              href="https://github.com/zulqarnain-saeed"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-lg text-surface-500 hover:text-surface-900 dark:hover:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-800 transition-all"
+              aria-label="GitHub profile"
+              title="GitHub"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/zulqarnain-saeed/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-lg text-surface-500 hover:text-[#0A66C2] hover:bg-surface-100 dark:hover:bg-surface-800 transition-all"
+              aria-label="LinkedIn profile"
+              title="LinkedIn"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a
+              href="https://leetcode.com/u/zulqarnain-saeed/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-lg text-surface-500 hover:text-[#FFA116] hover:bg-surface-100 dark:hover:bg-surface-800 transition-all"
+              aria-label="LeetCode profile"
+              title="LeetCode"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.hackerrank.com/profile/zulqarnain_saeed"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-lg text-surface-500 hover:text-[#00EA64] hover:bg-surface-100 dark:hover:bg-surface-800 transition-all"
+              aria-label="HackerRank profile"
+              title="HackerRank"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 0c1.285 0 9.75 4.886 10.392 6 .645 1.115.645 11.885 0 13-.642 1.115-9.107 6-10.392 6-1.284 0-9.75-4.885-10.392-6C.963 17.885.963 7.115 1.608 6 2.25 4.886 10.715 0 12 0zm2.295 6.799c-.141 0-.258.115-.258.258v3.875H9.963V6.915c0-.143-.116-.258-.258-.258h-1.78c-.141 0-.258.115-.258.258v10.171c0 .141.117.258.258.258h1.78c.142 0 .258-.117.258-.258v-4.007h4.074v4.007c0 .141.116.258.258.258h1.78c.142 0 .258-.117.258-.258V6.915c0-.143-.116-.258-.258-.258l-1.78-.058z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column (5 cols): Bespoke Technical Monogram Composition -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end" data-reveal="right" data-delay="200">
+        <div class="relative w-full max-w-sm">
+
+          <!-- Main Technical Card -->
+          <div class="card overflow-hidden shadow-2xl relative border-surface-200 dark:border-surface-800">
+            <!-- Header visual with stylized abstract code grid -->
+            <div class="h-32 bg-gradient-to-br from-teal-700 via-teal-600 to-accent-500 relative flex items-center justify-center overflow-hidden">
+              <div class="absolute inset-0 dot-pattern opacity-25"></div>
+              <!-- Monogram Art -->
+              <div class="font-mono text-white/15 text-7xl font-black select-none tracking-tighter">
+                &lt;ZS/&gt;
+              </div>
+            </div>
+
+            <div class="p-6 pt-3">
+              <!-- Avatar Monogram Badge -->
+              <div class="w-16 h-16 rounded-2xl bg-teal-700 border-4 border-white dark:border-surface-900 flex items-center justify-center font-display font-bold text-white text-xl -mt-11 mb-4 shadow-md">
+                ZS
+              </div>
+
+              <div class="flex items-start justify-between">
+                <div>
+                  <h2 class="font-display text-xl font-bold text-surface-900 dark:text-surface-50">Zulqarnain Saeed</h2>
+                  <p class="text-xs text-accent-600 dark:text-accent-400 font-mono mt-0.5">Lahore, Pakistan · UCP CS</p>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-2xs font-mono font-medium">
+                  ● Available
+                </span>
+              </div>
+
+              <!-- Metrics / Fundamentals Grid -->
+              <div class="grid grid-cols-3 gap-2 py-4 my-4 border-y border-surface-100 dark:border-surface-800 text-center">
+                <div class="p-2 rounded-lg bg-surface-50 dark:bg-surface-800/40">
+                  <div class="font-display font-bold text-base text-surface-900 dark:text-surface-100">BS CS</div>
+                  <div class="text-2xs font-mono text-surface-400">2024–2028</div>
+                </div>
+                <div class="p-2 rounded-lg bg-surface-50 dark:bg-surface-800/40">
+                  <div class="font-display font-bold text-base text-teal-600 dark:text-teal-400">Zentorix</div>
+                  <div class="text-2xs font-mono text-surface-400">Founder</div>
+                </div>
+                <div class="p-2 rounded-lg bg-surface-50 dark:bg-surface-800/40">
+                  <div class="font-display font-bold text-base text-surface-900 dark:text-surface-100">Systems</div>
+                  <div class="text-2xs font-mono text-surface-400">&amp; DevOps</div>
+                </div>
+              </div>
+
+              <!-- Terminal-style focus snippet -->
+              <div class="p-3 rounded-lg bg-surface-100/90 dark:bg-surface-950 font-mono text-xs text-surface-600 dark:text-surface-400 space-y-1">
+                <div class="flex items-center gap-1.5 text-2xs text-surface-400 mb-1 border-b border-surface-200 dark:border-surface-800 pb-1">
+                  <span class="w-2 h-2 rounded-full bg-red-400 inline-block"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400 inline-block"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
+                  <span class="ml-1 text-2xs">core_focus.sh</span>
+                </div>
+                <div><span class="text-teal-600 dark:text-teal-400">$</span> gcc -std=c11 os_sim.c -o sim</div>
+                <div class="text-2xs text-surface-500">status: compiling algorithms... [OK]</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Asymmetrical Float Pill -->
+          <div class="absolute -bottom-3 -left-4 card px-3.5 py-2 shadow-lg flex items-center gap-2 animate-float bg-white dark:bg-surface-900 border-surface-200 dark:border-surface-700">
+            <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+            <span class="text-xs font-mono font-medium text-surface-700 dark:text-surface-300">Open to Internship Offers</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll down prompt -->
+    <div class="flex justify-center mt-12 sm:mt-16" aria-hidden="true">
+      <a href="#about" class="flex flex-col items-center gap-2 text-surface-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors group">
+        <span class="text-2xs font-mono tracking-widest uppercase">Scroll Down</span>
+        <div class="w-px h-6 bg-gradient-to-b from-surface-300 dark:from-surface-700 to-transparent group-hover:from-accent-500"></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Profile Overview / CV Summary Modal -->
+  <div
+    id="cv-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-surface-950/70 backdrop-blur-md"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cv-modal-title"
+  >
+    <div
+      class="bg-white dark:bg-surface-900 border border-surface-200 dark:border-surface-800 rounded-2xl w-full max-w-xl max-h-[88vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8"
+      id="cv-modal-content"
+    >
+      <button
+        type="button"
+        id="close-cv-modal"
+        class="absolute top-5 right-5 p-2 rounded-xl text-surface-500 hover:text-surface-900 dark:hover:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors cursor-pointer"
+        aria-label="Close modal"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="border-b border-surface-200 dark:border-surface-800 pb-4 mb-4">
+        <h3 id="cv-modal-title" class="font-display text-2xl font-bold text-surface-900 dark:text-surface-50">
+          Zulqarnain Saeed
+        </h3>
+        <p class="text-sm text-accent-600 dark:text-accent-400 font-medium">
+          BS Computer Science (2024–2028) · Lahore, Pakistan
+        </p>
+        <p class="text-xs text-surface-500 font-mono mt-1">zulqarnainsaeed2005@gmail.com</p>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm text-surface-700 dark:text-surface-300">
+        <div>
+          <h4 class="font-display font-bold text-surface-900 dark:text-surface-100 uppercase tracking-wider text-2xs mb-1">
+            Education
+          </h4>
+          <p class="font-medium">University of Central Punjab (UCP), Lahore</p>
+          <p class="text-surface-500 text-xs">BS Computer Science (Expected 2028)</p>
+          <p class="text-surface-500 text-xs mt-0.5">Core coursework: Data Structures, OOP, Operating Systems, Networking, DBMS.</p>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-surface-900 dark:text-surface-100 uppercase tracking-wider text-2xs mb-1">
+            Core Technical Skills
+          </h4>
+          <p class="text-surface-600 dark:text-surface-400 text-xs leading-relaxed">
+            <strong>Languages:</strong> C, C++, Python, JavaScript, SQL, HTML5/CSS3<br />
+            <strong>Web:</strong> React.js, Next.js, Tailwind CSS, Responsive Design<br />
+            <strong>Tools &amp; Systems:</strong> Git/GitHub, Linux Basics, MySQL, VS Code<br />
+            <strong>Areas of Study:</strong> DevOps, DevSecOps, Cloud Fundamentals
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-surface-900 dark:text-surface-100 uppercase tracking-wider text-2xs mb-1">
+            Ventures &amp; Real-World Practice
+          </h4>
+          <p class="font-medium">Founder · Zentorix (2024–Present)</p>
+          <p class="text-surface-500 text-xs">Delivered production web client applications with modern Next.js and Tailwind CSS.</p>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-surface-900 dark:text-surface-100 uppercase tracking-wider text-2xs mb-1">
+            Verified Profiles
+          </h4>
+          <p class="text-surface-500 text-xs">
+            GitHub: github.com/zulqarnain-saeed<br />
+            LinkedIn: linkedin.com/in/zulqarnain-saeed<br />
+            LeetCode: leetcode.com/u/zulqarnain-saeed
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-surface-200 dark:border-surface-800 flex items-center justify-between gap-3">
+        <button
+          type="button"
+          onclick="window.print()"
+          class="btn-secondary text-xs py-2 px-3"
+        >
+          Print / Save PDF
+        </button>
+        <a
+          href="mailto:zulqarnainsaeed2005@gmail.com?subject=Internship%20Opportunity"
+          class="btn-primary text-xs py-2 px-3"
+        >
+          Email Me Directly →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const cvBtn = document.getElementById('open-cv-summary');
+  const cvModal = document.getElementById('cv-modal');
+  const closeCvBtn = document.getElementById('close-cv-modal');
+
+  if (cvBtn && cvModal) {
+    cvBtn.addEventListener('click', () => {
+      cvModal.classList.remove('hidden');
+      cvModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+
+    const closeCv = () => {
+      cvModal.classList.add('hidden');
+      cvModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    };
+
+    if (closeCvBtn) closeCvBtn.addEventListener('click', closeCv);
+    cvModal.addEventListener('click', (e) => {
+      if (e.target === cvModal) closeCv();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !cvModal.classList.contains('hidden')) {
+        closeCv();
+      }
+    });
+  }
+</script>

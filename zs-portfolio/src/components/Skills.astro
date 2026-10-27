@@ -1,0 +1,103 @@
+---
+// Skills & Technical Toolkit section
+import { skills } from '../data/profile';
+---
+
+<section
+  id="skills"
+  class="section-padding bg-white dark:bg-surface-900 relative overflow-hidden"
+  aria-label="Skills & Technologies"
+>
+  <div class="section-container relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="section-label justify-center" data-reveal>Technical Proficiencies</div>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-surface-900 dark:text-surface-50 mb-4 tracking-tight" data-reveal data-delay="100">
+        Skills &amp; Technologies
+      </h2>
+      <p class="text-surface-600 dark:text-surface-400 text-lg leading-relaxed" data-reveal data-delay="200">
+        A grounded toolkit focused on core engineering fundamentals, modern web application development, and active exploration in DevOps.
+      </p>
+    </div>
+
+    <!-- Categories Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {skills.map((group, i) => (
+        <div
+          class="card p-6 flex flex-col group relative hover:border-accent-500/40"
+          data-reveal
+          data-delay={String(i * 90 + 150)}
+        >
+          <!-- Header with bespoke category icon -->
+          <div class="flex items-center gap-3.5 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-600 dark:text-accent-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+              {group.icon === 'code' && (
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+              )}
+              {group.icon === 'cpu' && (
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <rect x="4" y="4" width="16" height="16" rx="2" /><rect x="9" y="9" width="6" height="6" /><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3" />
+                </svg>
+              )}
+              {group.icon === 'layers' && (
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              )}
+              {group.icon === 'database' && (
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <ellipse cx="12" cy="5" rx="9" ry="3" /><path stroke-linecap="round" stroke-linejoin="round" d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12" /><path stroke-linecap="round" stroke-linejoin="round" d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
+                </svg>
+              )}
+              {group.icon === 'compass' && (
+                <svg class="w-5 h-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                </svg>
+              )}
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-surface-900 dark:text-surface-50 text-base">
+                {group.category}
+              </h3>
+              <p class="text-2xs text-surface-500 font-mono">
+                {group.category === 'Currently Exploring' ? 'Active 2025/2026 Study' : 'Verified Foundations'}
+              </p>
+            </div>
+          </div>
+
+          <!-- Skill Pills List -->
+          <ul class="space-y-2.5 mt-2 flex-1" role="list">
+            {group.items.map(item => (
+              <li class="flex items-center justify-between text-xs sm:text-sm p-2 rounded-lg bg-surface-50/70 dark:bg-surface-800/40 border border-surface-100 dark:border-surface-700/50">
+                <div class="flex items-center gap-2.5">
+                  <span class={`w-1.5 h-1.5 rounded-full ${item.exploring ? 'bg-amber-400 animate-pulse-slow' : 'bg-teal-500'}`} aria-hidden="true"></span>
+                  <span class="text-surface-800 dark:text-surface-200 font-medium">{item.name}</span>
+                </div>
+                {item.exploring ? (
+                  <span class="text-2xs font-mono font-medium text-amber-700 dark:text-amber-300 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                    Exploring
+                  </span>
+                ) : (
+                  <span class="text-2xs font-mono text-surface-400">
+                    Core
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Honesty Principle Note -->
+    <div class="mt-12 text-center" data-reveal data-delay="300">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-100/70 dark:bg-surface-800/60 border border-surface-200 dark:border-surface-700 text-xs font-mono text-surface-600 dark:text-surface-400">
+        <svg class="w-3.5 h-3.5 text-accent-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>No arbitrary percentages or inflated numbers. Skills are categorized by applied experience vs. current study.</span>
+      </div>
+    </div>
+  </div>
+</section>

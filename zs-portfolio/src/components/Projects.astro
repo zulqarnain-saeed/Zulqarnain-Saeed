@@ -1,0 +1,451 @@
+---
+// Projects section — featuring authentic technical visualizations, category filters, and interactive case studies
+import { projects } from '../data/profile';
+
+const colorMap: Record<string, { bg: string; border: string; text: string; accent: string; badge: string }> = {
+  teal:   { bg: 'bg-teal-500/10',   border: 'border-teal-500/20',   text: 'text-teal-700 dark:text-teal-300',   accent: 'bg-teal-500',   badge: 'bg-teal-500/10 text-teal-700 dark:text-teal-300 border-teal-500/20' },
+  indigo: { bg: 'bg-indigo-500/10', border: 'border-indigo-500/20', text: 'text-indigo-700 dark:text-indigo-300', accent: 'bg-indigo-500', badge: 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/20' },
+  amber:  { bg: 'bg-amber-500/10',  border: 'border-amber-500/20',  text: 'text-amber-700 dark:text-amber-300',  accent: 'bg-amber-500',  badge: 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20' },
+  slate:  { bg: 'bg-slate-500/10',  border: 'border-slate-500/20',  text: 'text-slate-700 dark:text-slate-300',  accent: 'bg-slate-500',  badge: 'bg-slate-500/10 text-slate-700 dark:text-slate-300 border-slate-500/20' },
+  green:  { bg: 'bg-green-500/10',  border: 'border-green-500/20',  text: 'text-green-700 dark:text-green-300',  accent: 'bg-green-500',  badge: 'bg-green-500/10 text-green-700 dark:text-green-300 border-green-500/20' },
+  orange: { bg: 'bg-orange-500/10', border: 'border-orange-500/20', text: 'text-orange-700 dark:text-orange-300', accent: 'bg-orange-500', badge: 'bg-orange-500/10 text-orange-700 dark:text-orange-300 border-orange-500/20' },
+};
+---
+
+<section
+  id="projects"
+  class="section-padding relative overflow-hidden"
+  aria-label="Featured Projects and Engineering Case Studies"
+>
+  <!-- Background decoration -->
+  <div class="absolute inset-0 dot-pattern opacity-40 dark:opacity-20" aria-hidden="true"></div>
+
+  <div class="section-container relative z-10">
+    <!-- Header -->
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <div class="section-label justify-center" data-reveal>Engineering Showcase</div>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-surface-900 dark:text-surface-50 mb-4 tracking-tight" data-reveal data-delay="100">
+        Featured Projects &amp; Systems
+      </h2>
+      <p class="text-surface-600 dark:text-surface-400 text-lg leading-relaxed" data-reveal data-delay="200">
+        Real code, authentic architectures, and verified repositories. Each project demonstrates applied algorithmic thinking, systems design, or production web engineering.
+      </p>
+
+      <!-- Category Filter Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-8" data-reveal data-delay="300" role="tablist" aria-label="Project categories">
+        <button
+          type="button"
+          class="filter-btn active px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border bg-accent-600 text-white border-accent-600 shadow-sm"
+          data-filter="all"
+          role="tab"
+          aria-selected="true"
+        >
+          All Work ({projects.length})
+        </button>
+        <button
+          type="button"
+          class="filter-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-surface-200 dark:border-surface-800 bg-white dark:bg-surface-900 text-surface-600 dark:text-surface-400 hover:border-accent-500 hover:text-accent-600"
+          data-filter="systems"
+          role="tab"
+          aria-selected="false"
+        >
+          Systems &amp; Algorithms
+        </button>
+        <button
+          type="button"
+          class="filter-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-surface-200 dark:border-surface-800 bg-white dark:bg-surface-900 text-surface-600 dark:text-surface-400 hover:border-accent-500 hover:text-accent-600"
+          data-filter="web"
+          role="tab"
+          aria-selected="false"
+        >
+          Web &amp; Client Products
+        </button>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+      {projects.map((project, i) => {
+        const colors = colorMap[project.color] ?? colorMap.teal;
+        return (
+          <article
+            class="card p-6 flex flex-col group relative overflow-hidden project-item"
+            data-category={project.category}
+            data-featured={String(project.featured)}
+            data-reveal
+            data-delay={String((i % 3) * 100 + 150)}
+            aria-label={`Project: ${project.title}`}
+          >
+            <!-- Top color accent stripe -->
+            <div class={`absolute top-0 left-0 right-0 h-1.5 ${colors.accent}`} aria-hidden="true"></div>
+
+            <!-- Header line: category & featured badge -->
+            <div class="flex items-center justify-between gap-2 mb-4 pt-1">
+              <span class={`px-2.5 py-1 rounded-md text-xs font-mono font-medium border ${colors.badge}`}>
+                {project.category === 'systems' ? 'Systems / Algorithms' : 'Web / Platform'}
+              </span>
+              {project.featured && (
+                <span class="inline-flex items-center gap-1 text-xs font-mono font-semibold text-accent-600 dark:text-accent-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent-500 animate-pulse-slow"></span>
+                  Featured
+                </span>
+              )}
+            </div>
+
+            <!-- Technical Visualization Graphic -->
+            <div class="mb-4 rounded-xl bg-surface-100/80 dark:bg-surface-950/80 border border-surface-200/80 dark:border-surface-800 p-4 font-mono text-xs overflow-hidden select-none">
+              {project.id === 'nexus-grid' && (
+                <div class="text-surface-600 dark:text-surface-400 space-y-1">
+                  <div class="text-accent-600 dark:text-accent-400 font-bold flex items-center justify-between">
+                    <span>// Cosine Similarity Engine</span>
+                    <span class="text-2xs text-surface-400">Pure Python</span>
+                  </div>
+                  <div class="text-2xs opacity-75">sim(u, v) = (u · v) / (||u|| ||v||)</div>
+                  <div class="h-1.5 w-full bg-surface-200 dark:bg-surface-800 rounded-full overflow-hidden mt-2">
+                    <div class="h-full bg-teal-500 rounded-full" style="width: 88%;"></div>
+                  </div>
+                  <div class="flex justify-between text-2xs text-surface-400 pt-1">
+                    <span>Candidates: Top-K</span>
+                    <span class="text-teal-600 dark:text-teal-400">Rank: O(N)</span>
+                  </div>
+                </div>
+              )}
+
+              {project.id === 'interactive-os-simulator' && (
+                <div class="text-surface-600 dark:text-surface-400 space-y-1">
+                  <div class="text-indigo-600 dark:text-indigo-400 font-bold flex items-center justify-between">
+                    <span>// CPU Scheduler &amp; MMU</span>
+                    <span class="text-2xs text-surface-400">Modern C++</span>
+                  </div>
+                  <div class="flex items-center gap-1.5 text-2xs pt-1">
+                    <span class="px-1.5 py-0.5 rounded bg-surface-200 dark:bg-surface-800 text-surface-700 dark:text-surface-300">P1[RR]</span>
+                    <span>→</span>
+                    <span class="px-1.5 py-0.5 rounded bg-surface-200 dark:bg-surface-800 text-surface-700 dark:text-surface-300">P2[SJF]</span>
+                    <span>→</span>
+                    <span class="px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-600 dark:text-indigo-300">P3[Ready]</span>
+                  </div>
+                  <div class="text-2xs text-surface-400 pt-1 flex justify-between">
+                    <span>Quantum: 4ms</span>
+                    <span class="text-indigo-600 dark:text-indigo-400">Context: 0.2ms</span>
+                  </div>
+                </div>
+              )}
+
+              {project.id === 'zentorix' && (
+                <div class="text-surface-600 dark:text-surface-400 space-y-1">
+                  <div class="text-amber-600 dark:text-amber-400 font-bold flex items-center justify-between">
+                    <span>// Production Web Platform</span>
+                    <span class="text-2xs text-emerald-500 font-semibold">Live ●</span>
+                  </div>
+                  <div class="text-2xs opacity-75">Target: zentorix.netlify.app</div>
+                  <div class="grid grid-cols-3 gap-1 pt-2 text-center text-2xs">
+                    <div class="p-1 rounded bg-amber-500/10 text-amber-700 dark:text-amber-300">Perf: 98</div>
+                    <div class="p-1 rounded bg-teal-500/10 text-teal-700 dark:text-teal-300">A11y: 100</div>
+                    <div class="p-1 rounded bg-blue-500/10 text-blue-700 dark:text-blue-300">SEO: 100</div>
+                  </div>
+                </div>
+              )}
+
+              {project.id === 'banking-system' && (
+                <div class="text-surface-600 dark:text-surface-400 space-y-1">
+                  <div class="text-slate-600 dark:text-slate-400 font-bold flex items-center justify-between">
+                    <span>// Applied OOP Architecture</span>
+                    <span class="text-2xs text-surface-400">C++ Console</span>
+                  </div>
+                  <div class="text-2xs opacity-80">Class Account &lt;-- [Savings, Checking]</div>
+                  <div class="text-2xs text-surface-500 dark:text-surface-400 pt-1">
+                    Atomic Transactions · File Ledger I/O
+                  </div>
+                </div>
+              )}
+
+              {project.id === 'al-huda-website' && (
+                <div class="text-surface-600 dark:text-surface-400 space-y-1">
+                  <div class="text-green-600 dark:text-green-400 font-bold flex items-center justify-between">
+                    <span>// Educational Web Application</span>
+                    <span class="text-2xs text-surface-400">Client Delivery</span>
+                  </div>
+                  <div class="text-2xs opacity-75">React.js + Tailwind CSS</div>
+                  <div class="text-2xs text-surface-500 dark:text-surface-400 pt-1">
+                    Online Curriculum · Student Portals · Responsive
+                  </div>
+                </div>
+              )}
+
+              {project.id === 'roofing-website' && (
+                <div class="text-surface-600 dark:text-surface-400 space-y-1">
+                  <div class="text-orange-600 dark:text-orange-400 font-bold flex items-center justify-between">
+                    <span>// Lead Generation Architecture</span>
+                    <span class="text-2xs text-surface-400">Client Delivery</span>
+                  </div>
+                  <div class="text-2xs opacity-75">Conversion-Optimized Landing Page</div>
+                  <div class="text-2xs text-surface-500 dark:text-surface-400 pt-1">
+                    Quote Estimation Funnel · Mobile Touch CTAs
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <!-- Title & Description -->
+            <h3 class="font-display text-xl font-bold text-surface-900 dark:text-surface-50 mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
+              {project.title}
+            </h3>
+            <p class="text-sm text-surface-600 dark:text-surface-400 leading-relaxed flex-1 mb-4">
+              {project.description}
+            </p>
+
+            <!-- Verified Key Highlight -->
+            <div class="flex items-start gap-2 mb-4 p-3 rounded-lg bg-surface-50 dark:bg-surface-800/60 border border-surface-200/60 dark:border-surface-700/60 text-xs">
+              <svg class="w-4 h-4 text-accent-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-surface-700 dark:text-surface-300 font-medium">{project.highlight}</span>
+            </div>
+
+            <!-- Tech Stack Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-5" aria-label="Technologies used">
+              {project.tags.map(tag => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+
+            <!-- Actions Footer -->
+            <div class="flex items-center justify-between gap-2 pt-4 border-t border-surface-100 dark:border-surface-800 mt-auto">
+              <div class="flex items-center gap-3">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 text-xs font-semibold text-surface-700 dark:text-surface-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+                    aria-label={`View ${project.title} on GitHub`}
+                  >
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                    </svg>
+                    Code
+                  </a>
+                )}
+
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors"
+                    aria-label={`Visit live demo for ${project.title}`}
+                  >
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    Live Demo
+                  </a>
+                )}
+
+                {!project.github && !project.demo && (
+                  <span class="text-xs font-mono text-surface-400 italic">Client engagement</span>
+                )}
+              </div>
+
+              {project.caseStudy && (
+                <button
+                  type="button"
+                  class="open-case-study inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-200 hover:bg-accent-500/10 hover:text-accent-600 dark:hover:text-accent-400 transition-all cursor-pointer"
+                  data-project-id={project.id}
+                  aria-haspopup="dialog"
+                >
+                  Deep Dive →
+                </button>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+
+  <!-- Interactive Project Case Study Modal / Drawer -->
+  <div
+    id="case-study-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-surface-950/70 backdrop-blur-md"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="case-study-title"
+  >
+    <div
+      class="bg-white dark:bg-surface-900 border border-surface-200 dark:border-surface-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8"
+      id="case-study-content"
+    >
+      <!-- Close button -->
+      <button
+        type="button"
+        id="close-case-study"
+        class="absolute top-5 right-5 p-2 rounded-xl text-surface-500 hover:text-surface-900 dark:hover:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors cursor-pointer"
+        aria-label="Close case study"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="pr-8">
+        <span id="cs-category" class="inline-block px-2.5 py-1 rounded text-xs font-mono font-medium mb-2 bg-accent-500/10 text-accent-700 dark:text-accent-300 border border-accent-500/20">
+          Case Study
+        </span>
+        <h3 id="case-study-title" class="font-display text-2xl sm:text-3xl font-bold text-surface-900 dark:text-surface-50 mb-4"></h3>
+      </div>
+
+      <div class="space-y-6 mt-6 text-sm text-surface-600 dark:text-surface-300 leading-relaxed">
+        <div>
+          <h4 class="font-display font-semibold text-surface-900 dark:text-surface-100 text-base mb-1.5 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-500"></span> The Problem
+          </h4>
+          <p id="cs-problem" class="text-surface-600 dark:text-surface-400"></p>
+        </div>
+
+        <div>
+          <h4 class="font-display font-semibold text-surface-900 dark:text-surface-100 text-base mb-1.5 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-500"></span> Engineering Approach
+          </h4>
+          <p id="cs-approach" class="text-surface-600 dark:text-surface-400"></p>
+        </div>
+
+        <div>
+          <h4 class="font-display font-semibold text-surface-900 dark:text-surface-100 text-base mb-2 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-500"></span> System Architecture &amp; Pipeline
+          </h4>
+          <ul id="cs-architecture" class="space-y-1.5 list-disc list-inside text-surface-600 dark:text-surface-400"></ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-semibold text-surface-900 dark:text-surface-100 text-base mb-2 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-500"></span> Core Implementation Highlights
+          </h4>
+          <ul id="cs-features" class="space-y-1.5 list-disc list-inside text-surface-600 dark:text-surface-400"></ul>
+        </div>
+
+        <div class="p-4 rounded-xl bg-accent-500/5 dark:bg-accent-500/10 border border-accent-500/20">
+          <h4 class="font-display font-semibold text-accent-700 dark:text-accent-300 text-sm mb-1">
+            Outcomes &amp; Engineering Growth
+          </h4>
+          <p id="cs-outcomes" class="text-xs sm:text-sm text-surface-700 dark:text-surface-300"></p>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="flex items-center gap-3 mt-8 pt-6 border-t border-surface-100 dark:border-surface-800" id="cs-links"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Filtering and Case Study Modal Script -->
+<script define:vars={{ projects }}>
+  // Category Filtering
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-accent-600', 'text-white', 'border-accent-600', 'shadow-sm', 'active');
+        b.classList.add('border-surface-200', 'dark:border-surface-800', 'bg-white', 'dark:bg-surface-900', 'text-surface-600', 'dark:text-surface-400');
+        b.setAttribute('aria-selected', 'false');
+      });
+
+      btn.classList.add('bg-accent-600', 'text-white', 'border-accent-600', 'shadow-sm', 'active');
+      btn.classList.remove('border-surface-200', 'dark:border-surface-800', 'bg-white', 'dark:bg-surface-900', 'text-surface-600', 'dark:text-surface-400');
+      btn.setAttribute('aria-selected', 'true');
+
+      const filter = btn.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Case Study Modal
+  const modal = document.getElementById('case-study-modal');
+  const closeBtn = document.getElementById('close-case-study');
+  const csTitle = document.getElementById('case-study-title');
+  const csProblem = document.getElementById('cs-problem');
+  const csApproach = document.getElementById('cs-approach');
+  const csArch = document.getElementById('cs-architecture');
+  const csFeatures = document.getElementById('cs-features');
+  const csOutcomes = document.getElementById('cs-outcomes');
+  const csLinks = document.getElementById('cs-links');
+
+  document.querySelectorAll('.open-case-study').forEach(button => {
+    button.addEventListener('click', () => {
+      const pId = button.getAttribute('data-project-id');
+      const project = projects.find(p => p.id === pId);
+      if (!project || !project.caseStudy) return;
+
+      csTitle.textContent = project.title;
+      csProblem.textContent = project.caseStudy.problem;
+      csApproach.textContent = project.caseStudy.approach;
+
+      csArch.innerHTML = '';
+      project.caseStudy.architecture.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        csArch.appendChild(li);
+      });
+
+      csFeatures.innerHTML = '';
+      project.caseStudy.keyFeatures.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        csFeatures.appendChild(li);
+      });
+
+      csOutcomes.textContent = project.caseStudy.outcomes;
+
+      csLinks.innerHTML = '';
+      if (project.github) {
+        const gh = document.createElement('a');
+        gh.href = project.github;
+        gh.target = '_blank';
+        gh.rel = 'noopener noreferrer';
+        gh.className = 'btn-secondary text-xs py-2 px-3';
+        gh.innerHTML = 'View Source Code on GitHub →';
+        csLinks.appendChild(gh);
+      }
+      if (project.demo) {
+        const demo = document.createElement('a');
+        demo.href = project.demo;
+        demo.target = '_blank';
+        demo.rel = 'noopener noreferrer';
+        demo.className = 'btn-primary text-xs py-2 px-3';
+        demo.innerHTML = 'Open Live Platform ↗';
+        csLinks.appendChild(demo);
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+</script>

@@ -1,0 +1,145 @@
+---
+// Base layout for all pages with accessibility, SEO, theme management, and print styles
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Zulqarnain Saeed — CS Student & Systems Explorer",
+  description = "Computer Science undergraduate at UCP Lahore. Building software systems, exploring algorithms, operating systems, and DevOps. Founder of Zentorix.",
+  ogImage = "/og-image.svg",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Zulqarnain Saeed" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:site_name" content="Zulqarnain Saeed Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+    <!-- Browser Branding & Monogram Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0d9488" />
+
+    <!-- Typography (Inter, Space Grotesk, JetBrains Mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+
+    <!-- Theme initialization: prevents FOUC flash of light/dark mode -->
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
+
+    <!-- Print Styles for Resume Overview -->
+    <style is:inline>
+      @media print {
+        header, footer, #contact, #theme-toggle, .filter-btn, [aria-label="Toggle navigation menu"] {
+          display: none !important;
+        }
+        body {
+          background: white !important;
+          color: black !important;
+        }
+        .card {
+          box-shadow: none !important;
+          border: 1px solid #ccc !important;
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-surface-50 dark:bg-surface-950 text-surface-800 dark:text-surface-200 transition-colors duration-300 antialiased selection:bg-teal-500/20 selection:text-teal-900 dark:selection:text-teal-200">
+    <Nav />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Scroll Reveal and Active Section Tracking -->
+    <script>
+      // Intersection Observer for scroll-reveal animations
+      const revealElements = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+        );
+        revealElements.forEach((el) => revealObserver.observe(el));
+      } else {
+        revealElements.forEach((el) => el.classList.add('revealed'));
+      }
+
+      // Active Navigation Link Highlighting on Scroll
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('[data-nav-link]');
+      if ('IntersectionObserver' in window && sections.length > 0) {
+        const navObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const currentId = entry.target.getAttribute('id');
+                navLinks.forEach((link) => {
+                  if (link.getAttribute('href') === `#${currentId}`) {
+                    link.classList.add('nav-active');
+                  } else {
+                    link.classList.remove('nav-active');
+                  }
+                });
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+        sections.forEach((sec) => navObserver.observe(sec));
+      }
+    </script>
+  </body>
+</html>
