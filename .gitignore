@@ -1,0 +1,28 @@
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+.output/
+.vercel/
+.tanstack/
+.grok/
+
+# Workspace-only / temporary materials
+artifacts/
+attachments/
+screenshots/
+.node_modules.lock
+
+# Local configuration / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs and editor files
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
