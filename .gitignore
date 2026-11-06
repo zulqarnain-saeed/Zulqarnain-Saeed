@@ -1,28 +1,20 @@
-# Dependencies and generated output
+# Install and build artifacts
 node_modules/
 dist/
-build/
-.output/
+.netlify/
 .vercel/
 .tanstack/
-.grok/
 
-# Workspace-only / temporary materials
-artifacts/
-attachments/
-screenshots/
-.node_modules.lock
-
-# Local configuration / secrets
+# Private configuration — never commit secrets
 .env
 .env.*
 !.env.example
 *.pem
 *.key
 
-# Logs and editor files
-*.log
+# Local OS/editor files
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+*.log

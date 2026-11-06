@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import { About } from "@/components/site/about";
 import { Certificates } from "@/components/site/certificates";
@@ -12,9 +11,7 @@ import { Projects } from "@/components/site/projects";
 import { Skills } from "@/components/site/skills";
 import { Stats } from "@/components/site/stats";
 
-export const Route = createFileRoute("/")({ component: Home });
-
-function Home() {
+export default function App() {
   return (
     <>
       <Header />
